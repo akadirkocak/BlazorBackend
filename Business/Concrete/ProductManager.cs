@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Core.Utilities.Result;
 
 namespace Business.Concrete
 {
@@ -16,34 +17,37 @@ namespace Business.Concrete
             _productDal = productDal;
         }
 
-        public void Add(Product product)
+        public IResult Add(Product product)
         {
             _productDal.Add(product);
+            return new SuccessResult("Save Success");
         }
 
-        public void Delete(Product product)
+        public IResult Delete(Product product)
         {
             _productDal.Delete(product);
+            return new SuccessResult("Delete Success");
         }
 
-        public Product GetById(int productId)
+        public IDataResult<Product> GetById(int productId)
         {
-            return _productDal.Get(p => p.ProductId == productId);
+            return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == productId));
         }
 
-        public List<Product> GetList()
+        public IDataResult<List<Product>> GetList()
         {
-            return _productDal.GetList().ToList();
+            return new SuccessDataResult<List<Product>>(_productDal.GetList().ToList());
         }
 
-        public List<Product> GetListByCategory(int categoryId)
+        public IDataResult<List<Product>> GetListByCategory(int categoryId)
         {
-            return _productDal.GetList(p => p.CategoryId == categoryId).ToList();
+            return new SuccessDataResult<List<Product>>(_productDal.GetList(p => p.CategoryId == categoryId).ToList());
         }
 
-        public void Update(Product product)
+        public IResult Update(Product product)
         {
             _productDal.Update(product);
+            return new SuccessResult("Update Success");
         }
     }
 }
