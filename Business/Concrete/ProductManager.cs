@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Business.Contants;
 using Core.Utilities.Result;
 
 namespace Business.Concrete
@@ -20,13 +21,13 @@ namespace Business.Concrete
         public IResult Add(Product product)
         {
             _productDal.Add(product);
-            return new SuccessResult("Save Success");
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         public IResult Delete(Product product)
         {
             _productDal.Delete(product);
-            return new SuccessResult("Delete Success");
+            return new SuccessResult(Messages.ProductDeleted);
         }
 
         public IDataResult<Product> GetById(int productId)
@@ -47,7 +48,7 @@ namespace Business.Concrete
         public IResult Update(Product product)
         {
             _productDal.Update(product);
-            return new SuccessResult("Update Success");
+            return new SuccessResult(Messages.ProductUpdated);
         }
     }
 }
