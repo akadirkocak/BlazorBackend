@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Business.Abstract;
+using Core.Entities.Concreate;
 using DataAccess.Abstract;
 using Entities.Concrete;
 

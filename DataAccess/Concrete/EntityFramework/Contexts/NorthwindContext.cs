@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.Entities.Concreate;
 
 namespace DataAccess.Concrete.EntityFramework.Contexts
 {
